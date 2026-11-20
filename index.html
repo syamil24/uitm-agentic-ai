@@ -1,0 +1,1182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic AI Engineering</title>
+
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Chart.js for data visualization -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section id="title" class="section-divider" data-state="is-section-divider">
+        <p class="kicker">UiTM · Tech talk</p>
+        <h1>Agentic AI<br>Engineering</h1>
+        <p>From a chat box in 2022 to systems that plan, call tools, and act — and what that asks of the people who build them.</p>
+        <p class="hint">← → navigate · F fullscreen · S speaker notes · Esc overview</p>
+        <aside class="notes">
+          Open by naming the shift, not the hype. This talk has six movements: history, a definition, the toolbox, two real telcos, a live shop, then the career question. The last slide is a verse, not a slogan. Leave time to actually run the shop.
+        </aside>
+      </section>
+
+      <section id="intro">
+        <p class="kicker">Before we start</p>
+        <h2>Hi, quick intro first</h2>
+        <div class="content">
+          <div class="profile">
+            <div class="avatar">
+              <p>photo<br>later</p>
+            </div>
+            <div>
+              <p class="name blank">Your name</p>
+              <p class="blank text-lg">Your programme, role, or the team you're with</p>
+              <p class="text-lg" style="margin-top: 16px;">What I actually build: <strong class="blank">one honest line — what I build, for who</strong></p>
+              <p class="text-lg" style="margin-top: 8px;">Why I'm talking about this: <strong class="blank">why I picked agentic engineering, not just a list of AI models</strong></p>
+            </div>
+          </div>
+          <p class="text-muted" style="margin-top: 22px;">Placeholder for now. Swap in your real lines before the talk — nothing else in the deck depends on them.</p>
+        </div>
+        <aside class="notes">
+          Stop on this slide and introduce yourself in your own words. Do not read the placeholders. If the bio is still blank on the day, skip the written lines and speak it.
+        </aside>
+      </section>
+
+      <section id="roadmap">
+        <p class="kicker">The plan</p>
+        <h2>Here's what we'll cover</h2>
+        <div class="content">
+          <div class="path3">
+            <div class="card">
+              <h3><i class="fa-solid fa-clock-rotate-left"></i> 01 · History</h3>
+              <p>From ChatGPT to AI that actually does stuff. What changed each year.</p>
+            </div>
+            <p class="flow-arrow">→</p>
+            <div class="card">
+              <h3><i class="fa-solid fa-compass"></i> 02 · Definition</h3>
+              <p>What “agentic” really means, and when you do (and don't) need one.</p>
+            </div>
+            <p class="flow-arrow">→</p>
+            <div class="card">
+              <h3><i class="fa-solid fa-toolbox"></i> 03 · Toolbox</h3>
+              <p>Your editor is probably already an agent. Then how to build one, and how it looks facts up.</p>
+            </div>
+          </div>
+          <p class="flow-arrow down">↓</p>
+          <div class="path3">
+            <div class="card">
+              <h3><i class="fa-solid fa-building"></i> 04 · A real company</h3>
+              <p>How U Mobile uses it, on Amazon Bedrock AgentCore.</p>
+            </div>
+            <p class="flow-arrow">→</p>
+            <div class="card">
+              <h3><i class="fa-solid fa-store"></i> 05 · The demo</h3>
+              <p>Our online shop, and where the agent really lives in it.</p>
+            </div>
+            <p class="flow-arrow">→</p>
+            <div class="card hot">
+              <h3><i class="fa-solid fa-scale-balanced"></i> 06 · Right now</h3>
+              <p>AI makes drafts cheap, companies are burning cash, and why knowing your stuff still matters.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="divider-1" class="section-divider" data-state="is-section-divider">
+        <p class="kicker">01</p>
+        <h1>Four years,<br>four different products</h1>
+        <p>Same industry joke — “just a chatbot” — stops being true at a different point each year.</p>
+      </section>
+
+      <section id="year-2022">
+        <p class="kicker">01 · 2022</p>
+        <h2>30 Nov 2022 — ChatGPT quietly shows up</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 22px; flex: 1;">
+            <div>
+              <p class="text-xl">OpenAI just dropped <strong>ChatGPT</strong> online, no big launch event. You type, it answers. But you still do all the work.</p>
+              <div class="chain">
+                <div class="step"><h3>Five days</h3><p>Around 1 million people signed up.</p></div>
+                <p class="flow-arrow down">↓</p>
+                <div class="step"><h3>Two months</h3><p>Around 100 million, according to a UBS estimate.</p></div>
+                <p class="flow-arrow down">↓</p>
+                <div class="step wait"><h3>Still just a text box</h3><p>It can't check stock, open your files, or click anything.</p></div>
+              </div>
+            </div>
+            <div class="hero-stat">
+              <p class="stat-n">100M</p>
+              <p>people in about two months. Basically a search box that talks back.</p>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">Ask who remembers their first chat. Then say: that product could not check a stock level or open a ticket. Everything after this slide is about closing that gap. Source: Reuters, Feb 2023, citing UBS. OpenAI research preview, 30 Nov 2022.</aside>
+      </section>
+
+      <section id="year-2023">
+        <p class="kicker">01 · 2023</p>
+        <h2>2023: chatbots just got better</h2>
+        <div class="content">
+          <div class="path3" style="grid-template-columns: 1fr auto 1fr;">
+            <div class="card">
+              <h3><i class="fa-solid fa-comments"></i> Better chatbots</h3>
+              <p>GPT-4 in March, Claude around the same time, Llama 2 in July (free to download), Gemini in December. But you were still copy-pasting the answers yourself.</p>
+            </div>
+            <p class="flow-arrow">→</p>
+            <div class="card hot">
+              <h3><i class="fa-solid fa-code"></i> Then it could call your code</h3>
+              <p>June 2023: function calling. The AI says “hey, run getStock('GPU-123')”, your program replies 4, and the AI uses that number. That's the first step toward an agent.</p>
+            </div>
+          </div>
+          <p class="text-lg" style="margin-top: 16px;">Both still lived in a chat window, and you still had to approve every next step.</p>
+        </div>
+      </section>
+
+      <section id="year-2024">
+        <p class="kicker">01 · 2024</p>
+        <h2>Now it starts using a computer</h2>
+        <div class="content">
+          <div class="path4">
+            <div class="step">
+              <h3><i class="fa-solid fa-terminal"></i> March</h3>
+              <p>Devin opens a terminal and tries to finish a coding task by itself. A bit messy, but you could see where this was going.</p>
+            </div>
+            <p class="flow-arrow">→</p>
+            <div class="step">
+              <h3><i class="fa-solid fa-i-cursor"></i> May</h3>
+              <p>Cursor gets good enough to use every day. I actually built this deck in it.</p>
+            </div>
+            <p class="flow-arrow">→</p>
+            <div class="step">
+              <h3><i class="fa-solid fa-brain"></i> September</h3>
+              <p>o1 stops to think before it answers, instead of blurting out the first thing.</p>
+            </div>
+            <p class="flow-arrow">→</p>
+            <div class="step tool">
+              <h3><i class="fa-solid fa-plug"></i> November</h3>
+              <p>MCP. One standard plug for files, databases, and APIs. Think USB, but for AI tools.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="year-2025">
+        <p class="kicker">01 · 2025</p>
+        <h2>Agents finally leave the demo stage</h2>
+        <div class="content">
+          <div class="on-rail">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
+              <div class="card">
+                <h3><i class="fa-solid fa-code-branch"></i> Coding agents</h3>
+                <p>Claude Code, OpenAI’s coding agents, Cursor’s agent mode. They edit your project, run the tests, read the error, and try again.</p>
+              </div>
+              <div class="card">
+                <h3><i class="fa-solid fa-computer-mouse"></i> Agents that click</h3>
+                <p>OpenAI Operator and Claude’s computer use. They can literally click around in a browser, not just call functions you wrote for them.</p>
+              </div>
+              <div class="card">
+                <h3><i class="fa-solid fa-share-nodes"></i> Agents that team up</h3>
+                <p>MCP is the plug for tools. Google adds Agent2Agent, so one agent can hand a task to another, plus ADK, a kit to build them.</p>
+              </div>
+            </div>
+          </div>
+          <p class="text-lg" style="margin-top: 16px;">All three showed up around the same time. So did “vibe coding”: you describe it, the AI types it. <strong>But describing a program is not the same as being responsible for it.</strong></p>
+        </div>
+      </section>
+
+      <section id="year-2026">
+        <p class="kicker">01 · 2026</p>
+        <h2>This year, agents are doing real work inside companies</h2>
+        <div class="content">
+          <div class="chain">
+            <div class="layer">
+              <h3><i class="fa-solid fa-server"></i> 1 · Somewhere to run them</h3>
+              <p>Amazon Bedrock, Azure, and Google now host agents for you, so you don't have to set up your own servers.</p>
+            </div>
+            <p class="flow-arrow down">↓</p>
+            <div class="layer">
+              <h3><i class="fa-solid fa-clipboard-list"></i> 2 · Permissions and a record</h3>
+              <p>Who asked, which tool ran, and what came back. If you can't see that, you can't trust it.</p>
+            </div>
+            <p class="flow-arrow down">↓</p>
+            <div class="layer">
+              <h3><i class="fa-solid fa-user-check"></i> 3 · A human for the risky stuff</h3>
+              <p>Drafting a reply? Let it run. Changing a real customer's account? A human still has to say yes.</p>
+            </div>
+          </div>
+          <p class="text-lg" style="margin-top: 18px;">The model names change every few weeks. <strong style="color: var(--secondary-color);">What sticks around is the engineering around them.</strong></p>
+        </div>
+        <aside class="notes">Do not list model names here. The point is that 2026 is about running agents against real systems, with a person still accountable.</aside>
+      </section>
+
+      <section id="history-line">
+        <p class="kicker">01 · History</p>
+        <h2>So what actually changed each year?</h2>
+        <div class="content">
+          <div class="tl">
+            <div class="node">
+              <i class="fa-solid fa-comment ico"></i>
+              <p class="yr">2022</p>
+              <p class="lbl">Just a text box<br>You ask, it answers</p>
+            </div>
+            <div class="node">
+              <i class="fa-solid fa-code ico"></i>
+              <p class="yr">2023</p>
+              <p class="lbl">Better chat<br>It can call a function</p>
+            </div>
+            <div class="node">
+              <i class="fa-solid fa-plug ico"></i>
+              <p class="yr">2024</p>
+              <p class="lbl">A USB port for tools<br>It thinks before answering</p>
+            </div>
+            <div class="node">
+              <i class="fa-solid fa-computer-mouse ico"></i>
+              <p class="yr">2025</p>
+              <p class="lbl">It edits code<br>and clicks around</p>
+            </div>
+            <div class="node">
+              <i class="fa-solid fa-user-check ico"></i>
+              <p class="yr">2026</p>
+              <p class="lbl">Real work<br>with a human checking</p>
+            </div>
+          </div>
+          <p class="text-center text-xl" style="margin-top: 36px;">Every year changed <strong style="color: var(--primary-color);">what the product actually is</strong>, not just its benchmark score.</p>
+        </div>
+      </section>
+
+      <section id="divider-2" class="section-divider" data-state="is-section-divider">
+        <p class="kicker">02</p>
+        <h1>What “agentic”<br>is asking for</h1>
+        <p>A definition you can test on a system, plus the problems that definition is aimed at.</p>
+      </section>
+
+      <section id="definition" class="dense">
+        <p class="kicker">02 · Definition</p>
+        <h2>An agent uses AI, does something, then checks what happened</h2>
+        <div class="content">
+          <div class="path5">
+            <div class="step"><h3>1 · Goal</h3><p>a task with a finish line</p></div>
+            <p class="flow-arrow">→</p>
+            <div class="step"><h3>2 · Plan</h3><p>what to do first</p></div>
+            <p class="flow-arrow">→</p>
+            <div class="step tool"><h3>3 · Tool</h3><p>API, database, file, test</p></div>
+            <p class="flow-arrow">→</p>
+            <div class="step"><h3>4 · Result</h3><p>a real answer, not a guess</p></div>
+            <p class="flow-arrow">→</p>
+            <div class="step"><h3>5 · Again</h3><p>go again, stop, or ask a human</p></div>
+          </div>
+          <blockquote style="margin-top: 12px;">
+            <p>Agentic AI is an artificial intelligence system that can act autonomously or semi-autonomously to achieve a specific goal, with limited or no human supervision. It operates independently, without continuous human hand-holding or step-by-step prompts.</p>
+            <cite>IBM’s definition</cite>
+          </blockquote>
+          <div class="tension" style="margin-top: 12px;">
+            <div class="card">
+              <h3>A chatbot stops at the reply</h3>
+              <p>You ask, it writes. You still do the clicking, searching, and checking.</p>
+            </div>
+            <div class="break"><p>step 5<br>is the split</p></div>
+            <div class="card hot">
+              <h3>An agent gets another go</h3>
+              <p>The stock number it just pulled can change what it does next. One result leads to the next step.</p>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          If someone asks “is a chatbot an agent?”: only if it chooses tools and keeps going from their results. A single reply is not an agent. Searching documents is a tool an agent might use. It is not the agent by itself.
+        </aside>
+      </section>
+
+      <section id="same-question">
+        <p class="kicker">02 · See the difference</p>
+        <h2>Same question, two very different helpers</h2>
+        <div class="content">
+          <div class="stem">
+            <p>Say a student tells you: “I can't log in to the portal.”</p>
+          </div>
+          <p class="flow-arrow down">same question, two helpers</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="card">
+              <h3><i class="fa-solid fa-pen"></i> Chatbot</h3>
+              <p class="text-lg">Gives you a polite checklist: reset your password, try another browser, clear the cache. You still have to dig through the logs and account page yourself.</p>
+            </div>
+            <div class="card good">
+              <h3><i class="fa-solid fa-gears"></i> Agent</h3>
+              <p class="text-lg">Reads the login log, checks the account service, then tells you “locked after 5 wrong passwords at 8:14pm.” You decide whether to unlock it.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="what-for">
+        <p class="kicker">02 · When to use it</p>
+        <h2>So what's an agent actually good for?</h2>
+        <div class="content">
+          <div class="stem">
+            <p>Only bring in an agent when your work looks like one of these</p>
+          </div>
+          <div class="on-rail" style="margin-top: 8px;">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+            <div class="card hot">
+              <h3><i class="fa-solid fa-table-columns"></i> One question, lots of screens</h3>
+              <p class="text-lg">“Where's my parcel?” needs the order, the payment, and the courier. A person opens three tabs. An agent can go through all of them in one go.</p>
+            </div>
+            <div class="card">
+              <h3><i class="fa-solid fa-list-check"></i> The work is a checklist</h3>
+              <p class="text-lg">Reset a password. Quote a PC. Run the tests. Steps in a row? Perfect for an agent. “What time do you open?” is just an FAQ, no agent needed.</p>
+            </div>
+            <div class="card">
+              <h3><i class="fa-solid fa-user"></i> People are the bottleneck</h3>
+              <p class="text-lg">Think helpdesks and code review. The agent prepares the answer or the patch, and you make the final call.</p>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="desks">
+        <p class="kicker">02 · Where you'll see it</p>
+        <h2>Same loop, different jobs</h2>
+        <div class="content">
+          <div class="stem">
+            <p>Goal</p>
+            <p class="flow-arrow">→</p>
+            <p>Tool</p>
+            <p class="flow-arrow">→</p>
+            <p>A human still decides</p>
+          </div>
+          <div class="on-rail" style="margin-top: 8px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="card">
+              <h3><i class="fa-solid fa-headset"></i> Customer support</h3>
+              <p>“Where's my order?” The agent checks the systems and drafts the reply. A human sends it if money or an account is involved.</p>
+            </div>
+            <div class="card">
+              <h3><i class="fa-solid fa-code"></i> Writing code</h3>
+              <p>The agent reads the change, runs the tests, and sometimes fixes the branch. You still do the merge.</p>
+            </div>
+            <div class="card hot">
+              <h3><i class="fa-solid fa-gauge-high"></i> IT infra monitoring</h3>
+              <p>CPU, disk, a service that stopped, and the log that explains why. The agent goes through the stack, finds what's broken, and suggests a restart. A human still approves it.</p>
+            </div>
+            <div class="card">
+              <h3><i class="fa-solid fa-database"></i> Questions over data</h3>
+              <p>“Which GPU sold the most in October?” turns into a database query. The database still checks if you're allowed to see it.</p>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="on-the-laptop">
+        <p class="kicker">02 · Already out there</p>
+        <h2>You probably already have agentic tools on your laptop</h2>
+        <div class="content">
+          <div class="logos" style="grid-template-columns: repeat(5, 1fr);">
+            <div class="logo">
+              <p class="mark" style="background: #1C1424; color: #F6F1E8;">Cu</p>
+              <p>Cursor</p>
+              <p class="role">agent inside your editor</p>
+            </div>
+            <div class="logo">
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/anthropic.svg">
+              <p>Claude Code</p>
+              <p class="role">agent in your terminal</p>
+            </div>
+            <div class="logo">
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/github.svg">
+              <p>GitHub Copilot</p>
+              <p class="role">agent on a branch</p>
+            </div>
+            <div class="logo">
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/openai.svg">
+              <p>Codex</p>
+              <p class="role">OpenAI’s coding agent</p>
+            </div>
+            <div class="logo">
+              <p class="mark" style="background: #1F6A64; color: #F2FAF8;">Dv</p>
+              <p>Devin</p>
+              <p class="role">agent with its own computer</p>
+            </div>
+          </div>
+          <p class="cap">Five products, same loop underneath.</p>
+          <div class="path4" style="margin-top: 8px;">
+            <div class="step"><h3>You give it a task</h3><p>not just a chat next to your code</p></div>
+            <p class="flow-arrow">→</p>
+            <div class="step tool"><h3>It opens your project</h3><p>edits files, runs commands</p></div>
+            <p class="flow-arrow">→</p>
+            <div class="step"><h3>It reads the error</h3><p>and tries again</p></div>
+            <p class="flow-arrow">→</p>
+            <div class="step human"><h3>You make the call</h3><p>it won't ship anything for you</p></div>
+          </div>
+        </div>
+        <aside class="notes">
+          Name the one the room actually uses. If most of them are in Cursor, stay on Cursor. Claude Code, Copilot’s coding agent, Codex, and Devin are the same category: a goal, tool calls, and another turn. Do not spend this slide comparing prices.
+        </aside>
+      </section>
+
+      <section id="cursor-loop">
+        <p class="kicker">02 · Already out there</p>
+        <h2>Your AI editor is already an agent</h2>
+        <div class="content">
+          <p>Cursor is the easiest example here. I built this deck in it, and the shop demo’s review agent uses it too. Every part from an architecture diagram is already inside that one window.</p>
+          <div class="path4" style="margin-top: 14px;">
+            <div class="step"><h3>1 · You type a task</h3><p>“add DuitNow to checkout”</p></div>
+            <p class="flow-arrow">→</p>
+            <div class="step tool"><h3>2 · It gets to work</h3><p>reads, edits, runs</p></div>
+            <p class="flow-arrow">→</p>
+            <div class="step"><h3>3 · It checks again</h3><p>a test failed, so it tries again</p></div>
+            <p class="flow-arrow">→</p>
+            <div class="step human"><h3>4 · You decide</h3><p>accept or reject the diff</p></div>
+          </div>
+          <p class="cap">It's the same loop from the definition slide: a goal, an AI call, tools, and another go. The product just hides the wiring.</p>
+        </div>
+      </section>
+
+      <section id="parts" class="dense">
+        <p class="kicker">02 · The building blocks</p>
+        <h2>Every agentic product is made of these six things</h2>
+        <div class="content">
+          <div class="path3">
+            <div class="card hot"><h3>1 · Goal</h3><p>The task and when it's done. “Add the payment call and keep the tests green.”</p></div>
+            <p class="flow-arrow">→</p>
+            <div class="card"><h3>2 · AI call</h3><p>You ask once, it decides one thing: what to do next.</p></div>
+            <p class="flow-arrow">→</p>
+            <div class="card"><h3>3 · Orchestration</h3><p>Read first, then edit, then test. One step at a time.</p></div>
+          </div>
+          <p class="flow-arrow down">↓ what the tool returns goes back into the next call</p>
+          <div class="path3">
+            <div class="card"><h3>4 · Tool call</h3><p>A real action, like opening a file, running a command, or hitting an API.</p></div>
+            <p class="flow-arrow">→</p>
+            <div class="card"><h3>5 · Memory</h3><p>What you've chatted about, the files it opened, and the rules you wrote.</p></div>
+            <p class="flow-arrow">→</p>
+            <div class="card"><h3>6 · A human</h3><p>The brake. Risky steps don't go out on their own.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cursor-map" class="dense">
+        <p class="kicker">02 · Now in Cursor</p>
+        <h2>Same six parts, one product</h2>
+        <div class="content">
+          <div class="layers">
+            <div class="layer"><h3>1 · Goal</h3><p>The message you type in the agent panel. “Add a DuitNow payment call. Don't break checkout.”</p></div>
+            <div class="layer"><h3>2 · AI call</h3><p>Whatever model you picked. It decides what to do next, but it can't touch your files by itself.</p></div>
+            <div class="layer"><h3>3 · Orchestration</h3><p>The agent decides the order: which file to read, whether to edit or run a command, and when to stop and ask you.</p></div>
+            <div class="layer"><h3>4 · Tool call</h3><p>Read file, write file, terminal, search. MCP is the extra plug, so it can also reach a database or an API you connect.</p></div>
+            <div class="layer"><h3>5 · Memory</h3><p>This conversation, your indexed codebase, and your rule files. In the shop demo, that's AGENTS.md.</p></div>
+            <div class="layer"><h3>6 · A human</h3><p>You accept or reject the diff. The agent can open a pull request, but it won't merge it.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="other-products">
+        <p class="kicker">02 · What about the others?</p>
+        <h2>Swap the product, same parts</h2>
+        <div class="content">
+          <div class="matrix">
+            <p class="lab"></p>
+            <p class="head">Claude Code</p>
+            <p class="head">GitHub Copilot</p>
+            <p class="head">Devin</p>
+            <p class="lab">Goal</p>
+            <p>One sentence in the terminal.</p>
+            <p>An issue, then a branch.</p>
+            <p>A task on its own computer.</p>
+            <p class="lab">Tools</p>
+            <p>Shell commands and file edits.</p>
+            <p>Git and the repo.</p>
+            <p>A terminal and a browser.</p>
+            <p class="lab">Memory</p>
+            <p>The repo, plus the conversation.</p>
+            <p>The issue and the branch.</p>
+            <p>What it just saw on screen.</p>
+            <p class="lab">A human</p>
+            <p>You still approve the change.</p>
+            <p>A human still reviews the pull request.</p>
+            <p>A human still decides what ships.</p>
+          </div>
+          <p class="cap">You don't need to build an agent to use one. The next slides are for when you want to put these parts together yourself.</p>
+        </div>
+      </section>
+
+      <section id="divider-3" class="section-divider" data-state="is-section-divider">
+        <p class="kicker">03</p>
+        <h1 class="tight">So what if you want<br>to build your own<br>agentic AI by yourself</h1>
+        <p>The host, the libraries, and the socket it uses to reach the rest of the system.</p>
+      </section>
+
+      <section id="runtimes">
+        <p class="kicker">03 · Runtimes and platforms</p>
+        <h2>Where does an agent run?</h2>
+        <div class="content">
+          <p class="grouplab">Hosted platforms — you don't have to run the servers</p>
+          <div class="logos" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="logo">
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@11.14.0/icons/amazonaws.svg">
+              <p>Amazon Bedrock</p>
+              <p class="role">AgentCore</p>
+            </div>
+            <div class="logo">
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@11.14.0/icons/microsoftazure.svg">
+              <p>Azure AI</p>
+              <p class="role">Foundry</p>
+            </div>
+            <div class="logo">
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/googlecloud.svg">
+              <p>Vertex AI</p>
+              <p class="role">Agent Builder</p>
+            </div>
+          </div>
+          <p class="flow-arrow down">the kits below deploy onto one of these</p>
+          <p class="grouplab">Kits you code with</p>
+          <div class="logos" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="logo">
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/google.svg">
+              <p>Google ADK</p>
+              <p class="role">deploys onto Vertex</p>
+            </div>
+            <div class="logo">
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/openai.svg">
+              <p>OpenAI</p>
+              <p class="role">Agents SDK</p>
+            </div>
+            <div class="logo">
+              <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/anthropic.svg">
+              <p>Claude</p>
+              <p class="role">Agent SDK</p>
+            </div>
+          </div>
+          <p class="cap">These are the places your agent lives. ADK is Google’s kit and it deploys onto Vertex. Bedrock, Azure AI Foundry, and Vertex save you from running the servers yourself. You can usually switch the library you code with, but login and the company network tend to stay with whichever cloud you already pay for.</p>
+        </div>
+        <aside class="notes">
+          If asked for a recommendation: pick the runtime your company already pays for, unless you have a reason. The framework can move. The identity and network story usually cannot.
+        </aside>
+      </section>
+
+      <section id="frameworks">
+        <p class="kicker">03 · Frameworks and SDKs</p>
+        <h2>How people put the loop together</h2>
+        <div class="content">
+          <p class="text-lg">These four aren't equals. Think two paths, one plug.</p>
+          <div class="merge">
+            <div class="step">
+              <h3><i class="fa-solid fa-boxes-stacked"></i> LangChain</h3>
+              <p>a toolbox of parts: the model, the prompt, the tool</p>
+            </div>
+            <p class="flow-arrow">→</p>
+            <div class="step">
+              <h3><i class="fa-solid fa-diagram-project"></i> LangGraph</h3>
+              <p>the same parts, drawn as a path for the agent to follow</p>
+            </div>
+            <p class="flow-arrow">→</p>
+            <div class="step tool mcp">
+              <h3><i class="fa-solid fa-plug"></i> MCP</h3>
+              <p>the plug both paths share: files, databases, and APIs</p>
+            </div>
+            <div class="step human">
+              <h3><i class="fa-solid fa-leaf"></i> Spring AI</h3>
+              <p>the same loop, inside a Spring Boot service</p>
+            </div>
+            <p class="flow-arrow">→</p>
+            <div class="step">
+              <h3><i class="fa-solid fa-code-branch"></i> Same loop</h3>
+              <p>no second plug needed</p>
+            </div>
+            <p class="flow-arrow">→</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="lookup">
+        <p class="kicker">03 · Looking things up</p>
+        <h2>The model was not trained on your files</h2>
+        <div class="content">
+          <div class="path3" style="grid-template-columns: 1fr auto 1fr;">
+            <div class="card warn">
+              <h3><i class="fa-solid fa-comment-dots"></i> Ask it cold</h3>
+              <p>“How many days of medical leave do we get?” It answers from training. If your handbook is not in that training, it will invent a number that sounds right.</p>
+            </div>
+            <p class="flow-arrow">→</p>
+            <div class="card good">
+              <h3><i class="fa-solid fa-book-open"></i> Make it look first</h3>
+              <p>Search your own documents, or walk the links between facts, and only then let the model write. The answer has to come from something you stored.</p>
+            </div>
+          </div>
+          <p class="text-lg" style="margin-top: 16px;">Two stores. <strong>RAG</strong> searches pages that read like the question. A <strong>knowledge graph</strong> walks connections: this part, this plan, this next step.</p>
+        </div>
+        <aside class="notes">
+          RAG is retrieval-augmented generation. Say the full name once, then keep saying RAG. The graph is not a better RAG. It answers a different question: what is this thing connected to, not which paragraph sounds similar.
+        </aside>
+      </section>
+
+      <section id="rag-what">
+        <p class="kicker">03 · RAG</p>
+        <h2>RAG: find the page, then let the model write</h2>
+        <div class="content">
+          <div class="path4">
+            <div class="step">
+              <h3>1 · The question</h3>
+              <p>“Can I drop a subject in week 10?”</p>
+            </div>
+            <p class="flow-arrow">→</p>
+            <div class="step tool">
+              <h3>2 · Search</h3>
+              <p>Your handbook was cut into short chunks. The search returns the chunks closest to that question.</p>
+            </div>
+            <p class="flow-arrow">→</p>
+            <div class="step">
+              <h3>3 · Paste them in</h3>
+              <p>Those chunks go into the prompt, with the question. The model is not guessing from memory.</p>
+            </div>
+            <p class="flow-arrow">→</p>
+            <div class="step human">
+              <h3>4 · Answer, and show the page</h3>
+              <p>It quotes the rule. No matching page means it should say it does not know.</p>
+            </div>
+          </div>
+          <p class="cap">The search is usually by meaning, not by exact words. Each chunk is turned into a list of numbers, called an embedding, and the closest lists win. That store is a vector database.</p>
+        </div>
+      </section>
+
+      <section id="rag-uses">
+        <p class="kicker">03 · RAG · jobs and tools</p>
+        <h2>Where RAG earns its place</h2>
+        <div class="content">
+          <div class="path3" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="card">
+              <h3><i class="fa-solid fa-book"></i> A handbook</h3>
+              <p>Leave, add-drop, exam rules. The answer has to match the PDF, not a general idea of university policy.</p>
+            </div>
+            <div class="card">
+              <h3><i class="fa-solid fa-headset"></i> A support desk</h3>
+              <p>“Why was this purchase blocked?” The agent pulls the policy page, then drafts the reply a person can send.</p>
+            </div>
+            <div class="card">
+              <h3><i class="fa-solid fa-file-lines"></i> A spec sheet</h3>
+              <p>“What wattage does this card need?” That number lives in a document. Stock, the live count, is still a tool call to the database, not RAG.</p>
+            </div>
+          </div>
+          <p class="grouplab">Tools people build it with</p>
+          <div class="logos" style="grid-template-columns: repeat(6, 1fr);">
+            <div class="logo"><img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/postgresql.svg"><p>pgvector</p><p class="role">Postgres</p></div>
+            <div class="logo"><img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/opensearch.svg"><p>OpenSearch</p><p class="role">search the chunks</p></div>
+            <div class="logo"><div class="mark" style="background:#1C3C3C;color:#E8FFF8;">Pi</div><p>Pinecone</p><p class="role">vector database</p></div>
+            <div class="logo"><div class="mark" style="background:#1C3C3C;color:#E8FFF8;">Lc</div><p>LangChain</p><p class="role">the pipeline</p></div>
+            <div class="logo"><div class="mark" style="background:#172554;color:#bfdbfe;">LI</div><p>LlamaIndex</p><p class="role">docs in, answer out</p></div>
+            <div class="logo"><img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/spring.svg"><p>Spring AI</p><p class="role">same loop, Java</p></div>
+          </div>
+        </div>
+        <aside class="notes">
+          Bedrock Knowledge Bases is the hosted version of this, on OpenSearch. Mention it as the thing U Mobile uses, then the next two slides show the examples. Do not imply the shop catalog is RAG. Live stock is a service call.
+        </aside>
+      </section>
+
+      <section id="rag-examples">
+        <p class="kicker">03 · RAG · two examples</p>
+        <h2>One you could build. One a telco already runs.</h2>
+        <div class="content">
+          <div class="path3" style="grid-template-columns: 1fr auto 1fr;">
+            <div class="card">
+              <h3><i class="fa-solid fa-graduation-cap"></i> A faculty handbook bot</h3>
+              <p>A student asks, “Can I drop a subject in week 10?” The bot retrieves the academic regulation and quotes the week and the penalty. If that page was never uploaded, the honest answer is “I don’t have that rule,” not a made-up date.</p>
+            </div>
+            <p class="flow-arrow">→</p>
+            <div class="card hot">
+              <h3><i class="fa-solid fa-tower-cell"></i> U Mobile’s Knowledge Base</h3>
+              <p>Their helpdesk agent does not recite telecom policy from memory. Amazon Bedrock Knowledge Bases searches the company documents, on OpenSearch, and the specialist explains from those pages. A person still confirms before a live account changes. That system is the next section.</p>
+            </div>
+          </div>
+          <p class="cap">The handbook bot is a picture of the pattern, not a system this faculty is running. U Mobile’s is the published one: Bedrock Knowledge Bases in front of the specialist agents.</p>
+        </div>
+      </section>
+
+      <section id="graph-what">
+        <p class="kicker">03 · Knowledge graph</p>
+        <h2>A knowledge graph stores the links, not the paragraphs</h2>
+        <div class="content">
+          <p class="text-lg">Each fact is a node. The rule between two facts is an edge. You ask “what is this connected to?” and walk the line.</p>
+          <div class="path3" style="grid-template-columns: 1fr auto 1fr auto 1fr; margin-top: 14px;">
+            <div class="step"><h3>DDR4 stick</h3><p>a part in the catalog</p></div>
+            <p class="flow-arrow">→</p>
+            <div class="step wait"><h3>does not fit</h3><p>the edge, the rule</p></div>
+            <p class="flow-arrow">→</p>
+            <div class="step"><h3>DDR5 board</h3><p>the other part</p></div>
+          </div>
+          <p class="cap">RAG would find a paragraph that mentions DDR4. The graph answers the link: this stick does not fit this board. That is the question a shelf cannot answer.</p>
+        </div>
+      </section>
+
+      <section id="graph-uses">
+        <p class="kicker">03 · Knowledge graph · jobs, tools, examples</p>
+        <h2>Use it when the answer is a path</h2>
+        <div class="content">
+          <div class="path3" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="card">
+              <h3><i class="fa-solid fa-puzzle-piece"></i> Will this fit?</h3>
+              <p>A RAM kit, a board, a power supply. Eligibility is the same shape: this plan, this add-on, this ID check.</p>
+            </div>
+            <div class="card">
+              <h3><i class="fa-solid fa-list-ol"></i> What do I check next?</h3>
+              <p>A fault, then the next test, then the fix. The steps are linked. The agent walks them instead of inventing a procedure.</p>
+            </div>
+            <div class="card">
+              <h3><i class="fa-solid fa-share-nodes"></i> Who is tied to whom?</h3>
+              <p>Accounts, devices, and payments that share an edge. Useful for fraud, and for “this customer already has that plan.”</p>
+            </div>
+          </div>
+          <div class="logos" style="grid-template-columns: repeat(3, 1fr); margin-top: 12px;">
+            <div class="logo"><img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/neo4j.svg"><p>Neo4j</p><p class="role">nodes, edges, Cypher queries</p></div>
+            <div class="logo"><img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@11.14.0/icons/amazonaws.svg"><p>Amazon Neptune</p><p class="role">the same idea, on AWS</p></div>
+            <div class="logo"><div class="mark" style="background:#1e3a5f;color:#bfdbfe;">GR</div><p>GraphRAG</p><p class="role">Microsoft’s graph over documents</p></div>
+          </div>
+          <p class="cap">Fastweb + Vodafone keep their call-centre troubleshooting steps in Neo4j. The agent walks that path and briefs the person on the phone. It does not talk to the customer. In the PC shop, “will this DDR4 kit run on that DDR5 board?” is the same kind of question. Today the shop answers it with rules in code, not with Neo4j.</p>
+        </div>
+        <aside class="notes">
+          Cypher is Neo4j’s query language. One sentence is enough: you ask for a pattern, like a part connected by “does not fit” to a board. GraphRAG builds a graph out of documents so questions can follow entities, not only similar paragraphs. Do not claim the Apex inventory service is a graph database. The compatibility rules live in the inventory code.
+        </aside>
+      </section>
+
+      <section id="divider-4" class="section-divider" data-state="is-section-divider">
+        <p class="kicker">04</p>
+        <h1>Industries that Already Running Agentic AI</h1>
+        <p>A telco. A person still confirms the step that changes a live account.</p>
+      </section>
+
+      <section id="umobile-problem" class="dense">
+        <p class="kicker">04 · U Mobile · the problem</p>
+        <h2>One complaint, five different systems</h2>
+        <div class="content">
+          <div class="persona">
+            <div class="who">
+              <i class="fa-solid fa-user" style="color: #E4C56A; font-size: 28pt;"></i>
+              <h3>L2 support</h3>
+              <p>A customer can't buy extra data. You haven't replied yet.</p>
+            </div>
+            <div class="hops">
+              <div class="hop"><h3>1 · Error log</h3><p>why the purchase failed</p></div>
+              <div class="hop"><h3>2 · Eligibility</h3><p>is this number even allowed to buy it</p></div>
+              <div class="hop"><h3>3 · Policy</h3><p>what the company rule says</p></div>
+              <div class="hop"><h3>4 · Ticket tool</h3><p>if it's still not fixed</p></div>
+              <div class="hop"><h3>5 · Backend IT</h3><p>the customer is still waiting</p></div>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 12px;">
+            <div class="card warn">
+              <h3><i class="fa-solid fa-table-columns"></i> Too many screens</h3>
+              <p>Customer records, orders, number transfers, network monitors, reports. Every new system used to need its own custom connection.</p>
+            </div>
+            <div class="card warn">
+              <h3><i class="fa-solid fa-pen"></i> Just writing isn't enough</h3>
+              <p>A chatbot can polish your reply, but it can't open those systems and suggest the real fix.</p>
+            </div>
+            <div class="card warn">
+              <h3><i class="fa-solid fa-lock"></i> Not everyone can see everything</h3>
+              <p>Finance and the call centre both need the tool. The agent can only see what that staff member is already allowed to see.</p>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          Malaysia’s newest 5G operator, built with AWS and partner Axrail. The product is AiDaH, AI-Driven Agentic Helpdesk. Started from two pilot agents in late 2025. Do not recite the whole timeline unless asked: Q1 2026 helpdesk, mid-year six agents, Q3 live for 50 L2 and branch users.
+        </aside>
+      </section>
+
+      <section id="umobile-diagram" class="dense">
+        <p class="kicker">04 · U Mobile · the big picture</p>
+        <h2>Here's the diagram from their write-up</h2>
+        <div class="content">
+          <img class="shot" alt="U Mobile AiDaH architecture: staff in Teams, AgentCore orchestration, specialist agents, a tool gateway, knowledge, and on-premises systems" src="assets/umobile-architecture.png">
+          <p class="cap">Read it top to bottom. Staff type in Teams. A manager agent checks who they are, then picks a specialist. The specialists reach the real systems through a tool gateway, over a private network. Sensitive fields get hidden before the AI sees them. And a human still confirms before a live account changes.</p>
+        </div>
+      </section>
+
+      <section id="umobile-tools" class="dense">
+        <p class="kicker">04 · U Mobile · the tools</p>
+        <h2>AgentCore, plus the tools around it</h2>
+        <div class="content">
+          <div class="pillrow">
+            <p class="pill">Bedrock AgentCore runtime</p>
+            <p class="pill">Memory</p>
+            <p class="pill">Identity</p>
+            <p class="pill">Gateway + MCP</p>
+            <p class="pill">A2A between specialists</p>
+            <p class="pill">Knowledge Bases</p>
+            <p class="pill">Guardrails</p>
+            <p class="pill">Microsoft Teams</p>
+            <p class="pill">Kiro for the specs</p>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 14px; height: 290px; margin-top: 8px;">
+            <div style="position: relative; min-height: 0; min-width: 0; height: 100%; overflow: hidden;">
+              <canvas data-chart="doughnut">
+              <!--
+              {
+                "data": {
+                  "labels": ["Known phrase, no AI", "Small model", "Full agent"],
+                  "datasets": [{
+                    "data": [70, 20, 10],
+                    "backgroundColor": ["#5C2D91", "#1F6A64", "#A67C2D"]
+                  }]
+                },
+                "options": {
+                  "maintainAspectRatio": false,
+                  "plugins": {
+                    "legend": { "position": "bottom" },
+                    "title": { "display": true, "text": "70 / 20 / 10 of the questions" }
+                  }
+                }
+              }
+              -->
+              </canvas>
+            </div>
+            <div>
+              <p style="margin: 0; font-size: 16pt; font-weight: 700; color: var(--good);">8 specialist agents</p>
+              <p>150+ scenarios across six divisions. Billing −48.7%. Ease of use 4.6/5, and it's now part of their official process.</p>
+              <p class="text-muted" style="margin-top: 6px;">Provisioning and network tickets</p>
+              <div class="meter"><span style="width: 84.5%;"></span></div>
+              <p>−84.5%</p>
+              <p class="text-muted" style="margin-top: 8px;">General questions</p>
+              <div class="meter"><span style="width: 81.6%;"></span></div>
+              <p>−81.6%</p>
+            </div>
+          </div>
+          <p class="cap">Known phrase? No AI needed. Unclear? A small model handles it. Only a brand-new question wakes up the full agent. The bars measure something else: fewer tickets, Jan–Sep 2026.</p>
+        </div>
+        <aside class="notes">
+          Walk one request if you have time: Teams, Lambda, pre-flight against a six-tier role model, specialist session with memory, gateway tool, VPN to the on-prem system, Knowledge Base for the explanation, CloudWatch for the trace.
+        </aside>
+      </section>
+
+      <section id="divider-5" class="section-divider" data-state="is-section-divider">
+        <p class="kicker">05</p>
+        <h1 class="tight">Agentic AI Demo</h1>
+        <p>A physical PC shop, then an online one. The agents here do not sell the graphics card. They help build and repair the software that does.</p>
+      </section>
+
+      <section id="shop" class="dense">
+        <p class="kicker">05 · What we built</p>
+        <h2>How the online shop is put together</h2>
+        <div class="content">
+          <div class="journey">
+            <p class="on">1 · The shop</p>
+            <p>2 · The fix</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;" class="stack">
+            <div class="band">
+              <p class="bandlab">Client</p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <div class="tbox">
+                  <i class="fa-solid fa-user" style="color: var(--primary-color);"></i>
+                  <div><h3>Buyer</h3><p>Sulaiman’s customer</p></div>
+                </div>
+                <div class="tbox">
+                  <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/react.svg">
+                  <div><h3>React + Vite</h3><p>shop UI · :5173</p></div>
+                </div>
+              </div>
+            </div>
+            <div class="band">
+              <p class="bandlab">Edge</p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <div class="tbox tool">
+                  <img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/spring.svg">
+                  <div><h3>Spring Cloud Gateway</h3><p>only door · :8080 · JWT</p></div>
+                </div>
+                <div class="tbox">
+                  <p class="mark" style="background: #3C1E5C; color: #F6F1E8; width: 22px; height: 22px; border-radius: 6px; display: grid; place-items: center; font-size: 10pt; margin: 0;">K</p>
+                  <div><h3>Keycloak</h3><p>login · realm apex · :8180</p></div>
+                </div>
+                <div class="tbox">
+                  <p class="mark" style="background: #1F6A64; color: #F2FAF8; width: 22px; height: 22px; border-radius: 6px; display: grid; place-items: center; font-size: 10pt; margin: 0;">Eu</p>
+                  <div><h3>Eureka</h3><p>service registry · :8761</p></div>
+                </div>
+              </div>
+            </div>
+            <div class="band">
+              <p class="bandlab">Services</p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <div class="tbox"><img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/spring.svg"><div><h3>Auth</h3><p>:8081</p></div></div>
+                <div class="tbox"><img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/spring.svg"><div><h3>User</h3><p>:8082</p></div></div>
+                <div class="tbox"><img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/spring.svg"><div><h3>Inventory</h3><p>:8083 · PC builder</p></div></div>
+                <div class="tbox"><img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/spring.svg"><div><h3>Order</h3><p>:8084</p></div></div>
+                <div class="tbox wait"><img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/spring.svg"><div><h3>Payment ×3</h3><p>:8085 · :8185 · :8285</p></div></div>
+                <div class="tbox"><img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/spring.svg"><div><h3>Shipping</h3><p>:8086</p></div></div>
+                <div class="tbox"><img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/spring.svg"><div><h3>Report</h3><p>:8088</p></div></div>
+              </div>
+            </div>
+            <div class="band">
+              <p class="bandlab">Data</p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <div class="tbox"><img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/postgresql.svg"><div><h3>PostgreSQL</h3><p>one database per service</p></div></div>
+                <div class="tbox"><img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/apachekafka.svg"><div><h3>Kafka</h3><p>paid, failed, shipped · :9092</p></div></div>
+                <div class="tbox"><img alt="" src="https://cdn.jsdelivr.net/npm/simple-icons@14.15.0/icons/redis.svg"><div><h3>Redis</h3><p>cache service only · :8087</p></div></div>
+                <div class="tbox">
+                  <p class="mark" style="background: #8A5A12; color: #FBF6EA; width: 22px; height: 22px; border-radius: 6px; display: grid; place-items: center; font-size: 10pt; margin: 0;">M</p>
+                  <div><h3>MinIO</h3><p>product images · :9000</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="cap">Java 21. Prices are stored as whole cents. Services find each other by their Eureka name, through a Resilience4j circuit breaker, and no service ever opens another service’s database.</p>
+        </div>
+        <aside class="notes">
+          Kind of agentic system: engineering agents, not a shopping chatbot. The review agent and the heal agent live in GitHub Actions and call the Cursor SDK. AGENTS.md is the rulebook they are pointed at. No model sits inside checkout.
+        </aside>
+      </section>
+
+      <section id="the-fix">
+        <p class="kicker">05 · Where the agent really is</p>
+        <h2>So where's the AI? It starts in Cursor</h2>
+        <div class="content">
+          <div class="journey">
+            <p>1 · The shop</p>
+            <p class="on">2 · The fix</p>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+            <div class="step tool"><h3>1 · Cursor</h3><p>you describe the change in plain English</p></div>
+            <div class="step tool"><h3>2 · The agent in Cursor</h3><p>reads AGENTS.md, edits the code, runs the tests</p></div>
+            <div class="step"><h3>3 · Pull request</h3><p>your change shows up on GitHub</p></div>
+          </div>
+          <p class="arrow-down">↓</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div class="step wait"><h3>4a · Rules check</h3><p>no passwords in the diff, prices stay in cents, each service stays in its own database</p></div>
+            <div class="step wait"><h3>4b · AI review</h3><p>a second agent reads the diff and leaves comments</p></div>
+          </div>
+          <p class="arrow-down">↓</p>
+          <div style="display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 10px;">
+            <div class="step"><h3>5 · If checks fail</h3><p>Apex Heal fixes that same branch and pushes. It never merges and never touches .env</p></div>
+            <div class="step human"><h3>6 · A human merges</h3><p>customers only ever see the shop from the last diagram</p></div>
+          </div>
+          <p class="cap">There's no AI inside checkout. The agent shows up on the code change: it reads the rules, comments on the pull request, and can fix the branch. A human still merges.</p>
+        </div>
+        <aside class="notes">
+          Files if you want to flash them: .github/workflows/review.yml, resolve.yml, scripts/agents/review-rules.mjs, review-agent.mjs, resolve-agent.mjs. The model id in those scripts is composer-2.5. Review comments are capped. The resolve prompt says fix the PR, do not merge, do not edit .env.
+        </aside>
+      </section>
+
+      <section id="divider-6" class="section-divider" data-state="is-section-divider">
+        <p class="kicker">06</p>
+        <h1 class="tight">The current state<br>of AI right now</h1>
+        <p>Drafts got cheap. Judgment did not. The companies building this are spending faster than the returns are showing up.</p>
+      </section>
+
+      <section id="judgment">
+        <p class="kicker">06 · What got cheap</p>
+        <h2>Drafts got cheap. Good judgment didn't.</h2>
+        <div class="content">
+          <div class="stem">
+            <p>One draft, two different costs.</p>
+          </div>
+          <p class="flow-arrow down">what got cheap, and what didn't</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="card">
+              <h3><i class="fa-solid fa-code"></i> Coding</h3>
+              <p class="text-lg">A first version of an API, a mapper, or a test that follows a rule you already wrote. Some companies already let AI review pull requests, but a human still has to check. In our shop, the agent can fix the branch, but a human still merges.</p>
+            </div>
+            <div class="card">
+              <h3><i class="fa-solid fa-sitemap"></i> A whole system</h3>
+              <p class="text-lg">Setting up services, a gateway, and a database is cheaper than before. Designing the boundaries, keeping it running, and scaling it? Not so much. Someone still has to know that a failed charge must put the stock back.</p>
+            </div>
+          </div>
+        </div>
+        <aside class="notes">
+          If a student says “so I should not learn Java”: the demo is Java, and the agent is pointed at Java rules. The language is not the moat. The moat is knowing why the rule exists. AI code review exists. It does not replace the person who can see a wrong boundary.
+        </aside>
+      </section>
+
+      <section id="the-money" class="dense has-note">
+        <p class="kicker">06 · The money</p>
+        <h2>The spending is real. The payoff isn't here yet.</h2>
+        <div class="content">
+          <p class="grouplab">Each company's spending plan for this year. Same kind of number.</p>
+          <div style="display: grid; grid-template-columns: 1.35fr 0.75fr; gap: 16px;">
+            <div>
+              <p><strong>Amazon</strong> · about $220B</p>
+              <div class="meter"><span style="width: 100%;"></span></div>
+              <p class="cap">Free cash flow −$42.4B over 12 months, though AWS revenue still grew 39%.</p>
+              <p style="margin-top: 10px;"><strong>Alphabet</strong> · up to $205B</p>
+              <div class="meter"><span style="width: 93%;"></span></div>
+              <p class="cap">Free cash flow −$9.1B in Q3 2026. That's one quarter, not the whole year.</p>
+              <p style="margin-top: 10px;"><strong>Microsoft</strong> · about $170B</p>
+              <div class="meter"><span style="width: 77%;"></span></div>
+              <p class="cap">Still cash-positive last quarter at +$18.6B, even after spending $45.2B on infrastructure that quarter. It's also raising $25B in bonds.</p>
+            </div>
+            <div class="card warn">
+              <p class="stat-n">−$80B</p>
+              <p><strong style="color: var(--text-color);">Anthropic isn't on that bar.</strong> This is its net loss for the first half of 2026, from its IPO filing. It's an AI model company's loss, not a cloud spending plan. Sales are growing, but the filing doesn't show a profit.</p>
+            </div>
+          </div>
+          <p class="cap">Add Meta, and the four of them plan to spend over $740 billion this year. Cloud sales are up. The bars show the spending. The cash notes under them cover different time periods, so they're not on the same axis. The payoff is the part that's running late.</p>
+        </div>
+        <p class="footnote">Late October 2026 earnings, as reported by TechCrunch and CNBC.</p>
+        <aside class="notes">
+          Sources if someone asks: TechCrunch, 30 Oct 2026, “Cracks are emerging in the AI spending boom.” CNBC, 31 Oct 2026, on Anthropic’s prospectus: $80 billion net loss for the first half of 2026. Microsoft is the honest exception on free cash flow. Do not say every company is losing cash. Say the build is bigger than the profit so far. Do not forecast a crash. The point is the return is not in yet.
+        </aside>
+      </section>
+
+      <section id="how-wide">
+        <p class="kicker">06 · How much it can already do</p>
+        <h2>Same AI, totally different jobs</h2>
+        <div class="content">
+          <div class="stem">
+            <p>It's the same Claude. It didn't get a new feature between these two people.</p>
+          </div>
+          <p class="flow-arrow down">it does whatever you hand it</p>
+          <div style="display: grid; grid-template-columns: 1fr 1.25fr; gap: 16px;">
+            <div class="card">
+              <h3><i class="fa-solid fa-window-maximize"></i> One person, one product</h3>
+              <p class="text-lg">“I use Claude to build the website.” Pages, layout, a form, deploying it. The job ends when the site's done.</p>
+            </div>
+            <div class="card hot">
+              <h3><i class="fa-solid fa-layer-group"></i> Someone else, the whole workload</h3>
+              <p class="text-lg">The same Claude writes the posts, drafts the ads, reads last month’s sales, and suggests the next campaign. Content, marketing, and analysis, all in one chat.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="who-sees">
+        <p class="kicker">06 · Who spots the problems</p>
+        <h2>Looks great if you don’t know the topic. Not so great if you do.</h2>
+        <div class="content">
+          <div class="stem">
+            <p>Same new API. It compiles. It returns 200.</p>
+          </div>
+          <p class="flow-arrow down">depends on who's looking</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="card">
+              <h3><i class="fa-solid fa-eye-slash"></i> A junior, one prompt</h3>
+              <p class="text-lg">You ask for a new API. It compiles. The endpoint returns 200. From the outside, it looks done.</p>
+            </div>
+            <div class="card warn">
+              <h3><i class="fa-solid fa-eye"></i> A senior, the same API</h3>
+              <p class="text-lg">The SQL reads the whole table. The same check is written twice. The endpoint trusts whatever the client sends. The junior couldn't see any of that, so nobody asked the AI to fix it.</p>
+            </div>
+          </div>
+          <p class="cap">AI looks really good in a field you don't know, because you can't see what it skipped. To someone who does know, it looks weak.</p>
+        </div>
+      </section>
+
+      <section id="the-prompt">
+        <p class="kicker">06 · The tool and the person</p>
+        <h2>Same AI. The prompt is the skill.</h2>
+        <div class="content">
+          <div class="stem">
+            <p>Same payment gateway (we're keeping XX unnamed). Same AI model.</p>
+          </div>
+          <p class="flow-arrow down">the prompt makes the difference</p>
+          <div style="display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 16px;">
+            <div class="card">
+              <h3 class="text-muted">Prompt A · junior</h3>
+              <p class="mono" style="margin-top: 12px;">Create a new DuitNow online payment API from payment gateway XX.</p>
+            </div>
+            <div class="card good">
+              <h3>Prompt B · senior</h3>
+              <p class="mono" style="margin-top: 12px;">Create a new DuitNow online payment API using payment gateway XX. Make it atomic: if the charge sticks halfway, roll it back so nothing is left hanging. Make it idempotent: if the app freezes, or the network is slow, and the user taps pay again, do not charge them twice.</p>
+            </div>
+          </div>
+          <p class="cap">Atomic means the payment either goes all the way through or gets rolled back. Idempotent means if you repeat the same payment, you don't get charged again. AI is still just a tool. The person who knows the field is the one who can point it at a better product.</p>
+        </div>
+        <aside class="notes">
+          Read both prompts out loud. Do not rush Prompt B. The senior is not asking for more code. They are naming the failure: a stuck transaction, and a double tap when the app hangs. That is the domain. XX stays unnamed on purpose. Do not invent a gateway.
+        </aside>
+      </section>
+
+      <section id="the-gap">
+        <p class="kicker">06 · The awkward part</p>
+        <h2>Companies want seniors, but they're not training the next ones</h2>
+        <div class="content">
+          <div class="tension">
+            <div class="card warn">
+              <h3>What companies want</h3>
+              <p class="text-lg">Someone who can spot the bad SQL and write Prompt B. Knowing your domain matters even more now, because that's what makes the tool useful.</p>
+            </div>
+            <div class="break"><p>the path<br>breaks<br>here</p></div>
+            <div class="card warn">
+              <h3>What they're slow to pay for</h3>
+              <p class="text-lg">The years it takes to turn a junior into that person. Teams want an expert from day one, but fewer want to train one.</p>
+            </div>
+          </div>
+          <p class="text-lg" style="margin-top: 18px;">I'm still a junior myself. I'm sending out more applications than before, and getting fewer interviews back. That's just my own experience, not a survey.</p>
+        </div>
+        <aside class="notes">
+          This is your experience. Say it in the first person and stop. Do not turn it into a percentage, and do not claim every junior in the room has the same result. The point is the contradiction: experts are wanted, and the path that produces an expert is thinner.
+        </aside>
+      </section>
+
+      <section id="where-i-land">
+        <p class="kicker">06 · My take</p>
+        <h2>I don’t know what’s next. But AI isn’t going anywhere.</h2>
+        <div class="content">
+          <div class="tension">
+            <div class="card">
+              <h3>What I won't pretend</h3>
+              <p class="text-lg">I can't tell you where this job market is heading. It's hard to call, and the tools move faster than any course outline.</p>
+            </div>
+            <div class="break"><p>both<br>can be<br>true</p></div>
+            <div class="card hot">
+              <h3>What I will say</h3>
+              <p class="text-lg">AI is staying. People who can guide it stay useful. Both can be true, even while job hunting feels harder.</p>
+            </div>
+          </div>
+          <p class="closing-line">Honestly, it’s <strong style="color: var(--secondary-color);">scary</strong> and <strong style="color: var(--primary-color);">exciting</strong> at the same time.</p>
+        </div>
+        <aside class="notes">
+          End on this sentence, then go to the verse. Do not add a prediction. The honest line is that you do not know the next turn, and that AI is staying anyway.
+        </aside>
+      </section>
+
+      <!-- Verse slide held back. Uncomment this section to put it last again.
+      <section id="verse" class="verse-slide" data-background-color="#F3EBE0">
+        <div class="content">
+          <p class="kicker text-center">One last thing</p>
+          <p class="verse">يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ</p>
+          <p class="translation">“Allah will raise those who have believed among you, and those who were given knowledge, by degrees.”</p>
+          <p class="surah">SURAH AL-MUJADILAH · 58:11</p>
+          <p class="text-center" style="margin-top: 18px; max-width: 34em; margin-left: auto; margin-right: auto;">The tools will keep changing, and you don't need to panic at every headline. People with knowledge and wisdom are the ones He raises — and the ones who won't be left out in the cold when work changes.</p>
+          <p class="text-center text-muted" style="margin-top: 14px;">Okay, any questions?</p>
+        </div>
+        <aside class="notes">
+          Read the Arabic if you are comfortable, then the translation, then stop. The reflection is yours, not a second verse. Do not claim the ayah says “protect” word for word. It says Allah raises the people of knowledge by degrees. That is the protection this talk is pointing at: when the market moves, understanding is what still stands. Take questions without advancing past this slide.
+        </aside>
+      </section>
+      -->
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chart/plugin.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0,
+      controls: true,
+      progress: true,
+      slideNumber: 'c/t',
+      hash: true,
+      transition: 'slide',
+      center: false,
+      plugins: [ RevealNotes, RevealChart ],
+      chart: {
+        defaults: Object.assign({
+          color: 'rgba(0, 0, 0, 0.8)',
+          borderColor: 'rgba(0, 0, 0, 0.8)',
+          devicePixelRatio: 2
+        }, window.location.search.includes('export') ? { animation: false } : {})
+      }
+    });
+  </script>
+</body>
+</html>
